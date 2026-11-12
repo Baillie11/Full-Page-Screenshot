@@ -1,0 +1,18 @@
+{
+  "name": "fullpage-screenshot",
+  "version": "1.0.0",
+  "description": "A tool to capture full-page screenshots of websites",
+  "main": "screenshot.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "cli": "node screenshot.js"
+  },
+  "keywords": ["screenshot", "puppeteer", "fullpage"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^22.0.0"
+  }
+}
