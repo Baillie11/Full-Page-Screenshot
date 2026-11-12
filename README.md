@@ -2,6 +2,22 @@
 
 A simple Node.js application that captures full-page screenshots of websites using Puppeteer.
 
+The standalone Chrome extension is in `chrome-extension/`. It does not require Node.js or the companion server.
+
+### Chrome Web Store submission assets
+
+The extension package is version 1.0.1. Store publication is pending developer dashboard submission and Google's review; no live Web Store listing is available yet.
+
+- Build the upload ZIP with `python scripts/package-store.py` (requires Pillow).
+- Upload `release/full-page-screenshot-1.0.1.zip`, which contains only the extension.
+- Listing copy and permission explanations: `store-listing.txt`.
+- Store icon: `chrome-extension/icons/icon128.png`.
+- Listing image: `store-assets/screenshot-1280x800.png` (interface preview, not a live capture result).
+- Privacy policy: https://clickecommerce.com.au/full-page-screenshot-privacy-policy/.
+- Run feedback tests with `node --test test/popup.test.js`.
+
+Version 1.0.1 adds store icons, explicit clipboard-write permission, and accurate clipboard failure feedback. It does not change the capture engine.
+
 ## Features
 
 - 🖱️ **Web Interface** - Click a button to capture screenshots

@@ -1,0 +1,49 @@
+Full Page Screenshot
+Version: 1.0.1
+Category: Productivity / Tools (choose the available matching category)
+Language: English
+Website: https://clickecommerce.com.au/full-page-screenshot/
+Support: https://clickecommerce.com.au/contact/
+Privacy policy: https://clickecommerce.com.au/full-page-screenshot-privacy-policy/
+
+DESCRIPTION
+Capture the whole page. Keep the full picture.
+
+Full Page Screenshot by Click eCommerce captures a webpage as a PNG image, including content below the visible browser window. Copy a capture to your clipboard or save it locally without an account or external capture service.
+
+FEATURES
+- Capture a full webpage from the Chrome toolbar.
+- Copy screenshots to your clipboard for pasting into documents, emails and chats.
+- Optionally save PNG files to your Downloads/screenshots folder.
+- Choose a filename or use an automatically generated timestamp.
+- Optionally expand scrollable page areas before capturing.
+
+HOW TO USE
+1. Open the webpage and let its content load.
+2. Click Full Page Screenshot in your toolbar.
+3. Choose whether to expand scrollable areas and save a file.
+4. Click Capture Full Page and keep the popup open while it finishes.
+5. Paste your screenshot or find the saved PNG in Downloads/screenshots.
+
+Screenshots are processed locally. The extension does not upload captures to Click eCommerce, use analytics or advertising, or require an account. Chrome may briefly show a debugging banner during capture.
+
+Chrome internal pages and other protected pages cannot be captured. Very large pages, embedded frames and dynamically loaded content may affect results. Scroll through lazy-loaded content before capturing. Infinite-scrolling pages can only capture content already loaded.
+
+SINGLE PURPOSE
+Capture the user's selected webpage as a full-page PNG and copy or save that image locally at the user's request.
+
+PERMISSION JUSTIFICATIONS
+activeTab: Read the current tab URL for display and obtain temporary access following the user's toolbar action. No browsing-history collection.
+debugger: Temporarily attach to the selected tab to obtain page dimensions, set capture dimensions and capture a full-page PNG using Chrome's DevTools Protocol. Detach after capture. No network inspection, remote debugging service or background monitoring.
+downloads: Save the PNG locally only when the user enables Save to file. No reading or uploading of download history.
+scripting: Run packaged functions in the selected page to expand scrollable containers when requested and restore their styles afterwards. No remotely hosted scripts.
+clipboardWrite: Copy the user-requested PNG to the clipboard after capture. The extension never reads the clipboard.
+
+REMOTE CODE
+No. All executable code is included in the extension package.
+
+DATA PRACTICES FOR REVIEW
+The extension processes the selected tab URL and webpage content locally only to produce the requested screenshot. It does not transmit this data to the developer or third parties. Saved PNG files and clipboard contents remain under the user's control. No analytics, advertising, accounts, server or telemetry. Review the dashboard's exact collection definition before selecting data categories; do not confuse local access with transmission to a developer.
+
+REVIEWER TEST INSTRUCTIONS
+No credentials or account required. Open a regular HTTPS webpage with content below the viewport. Click the extension toolbar icon. Enable Save to file, then Capture Full Page. Verify the PNG in Downloads/screenshots, and paste the clipboard image into an image-capable application. Capture a page containing a scrollable area with Expand scrollable areas enabled. Chrome may show its standard debugger banner during capture.

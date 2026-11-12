@@ -28,7 +28,7 @@ captureBtn.addEventListener('click', async () => {
   }
 
   // Prevent capturing chrome:// or extension pages
-  if (tab.url.startsWith('chrome://') || tab.url.startsWith('chrome-extension://')) {
+  if (!tab.url || !/^https?:\/\//i.test(tab.url)) {
     showStatus('Cannot capture Chrome internal pages.', 'error');
     return;
   }
@@ -60,11 +60,11 @@ captureBtn.addEventListener('click', async () => {
 
     if (response && response.success) {
       // Copy screenshot to clipboard
-      await copyImageToClipboard(response.imageData);
+      const copied = await copyImageToClipboard(response.imageData);
       const msg = response.saved
-        ? `Saved: ${response.filename} (copied to clipboard)`
-        : 'Copied to clipboard';
-      showStatus(msg, 'success');
+        ? `Saved: ${response.filename}${copied ? ' (copied to clipboard)' : ' (clipboard unavailable)'}`
+        : copied ? 'Copied to clipboard' : 'Clipboard unavailable. Enable Save to file and capture again.';
+      showStatus(msg, copied || response.saved ? 'success' : 'error');
       filenameInput.value = '';
     } else {
       showStatus(response?.error || 'Unknown error occurred.', 'error');
@@ -90,8 +90,10 @@ async function copyImageToClipboard(base64Data) {
     await navigator.clipboard.write([
       new ClipboardItem({ 'image/png': blob })
     ]);
+    return true;
   } catch (e) {
     console.warn('Could not copy to clipboard:', e.message);
+    return false;
   }
 }
 
